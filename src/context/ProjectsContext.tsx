@@ -1,11 +1,22 @@
 'use client';
 
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
-import { addNewProject, deleteProject, listProjects, updateProject } from '@/lib/db';
+import {
+  addNewProject,
+  deleteProject,
+  listProjects,
+  updateProject,
+} from '@/lib/db';
 
-import { IProject } from "@/types/projects"
-
+import { IProject } from '@/types/projects';
 
 interface ProjectsContext {
   loading: boolean;
@@ -24,7 +35,7 @@ export const ProjectsContext = createContext<ProjectsContext>({
   fetchProjects: () => Promise.resolve(),
   addNew: () => Promise.resolve(),
   update: () => Promise.resolve(),
-  deleteProjectById: () => Promise.resolve()
+  deleteProjectById: () => Promise.resolve(),
 });
 
 export const ProjectsProvider: React.FC<{
@@ -35,59 +46,58 @@ export const ProjectsProvider: React.FC<{
   const [projects, setProjects] = useState<IProject[]>([]);
 
   async function fetchProjects() {
-    setFetching(true)
+    setFetching(true);
     try {
-      const response = await listProjects()
-      setProjects(response.documents)
+      const response = await listProjects();
+      setProjects(response.documents);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     } finally {
-      setFetching(false)
+      setFetching(false);
     }
   }
 
   useEffect(() => {
-    fetchProjects()
-  }, [])
+    fetchProjects();
+  }, []);
 
   const addNew = useCallback(async (project: Partial<IProject>) => {
-    setLoading(true)
+    setLoading(true);
     try {
-      await addNewProject(project)
+      await addNewProject(project);
       setTimeout(async () => {
-        await fetchProjects()
-      }, 600)
+        await fetchProjects();
+      }, 600);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [])
+  }, []);
 
   const update = useCallback(async (id: string, project: Partial<IProject>) => {
-    setLoading(true)
+    setLoading(true);
     try {
-      await updateProject(id, project)
-      await fetchProjects()
+      await updateProject(id, project);
+      await fetchProjects();
     } catch (error) {
-      console.error(error)
+      console.error(error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [])
+  }, []);
 
   const deleteProjectById = useCallback(async (id: string) => {
-    setLoading(true)
+    setLoading(true);
     try {
-      await deleteProject(id)
-      await fetchProjects()
+      await deleteProject(id);
+      await fetchProjects();
     } catch (error) {
-      console.error(error)
+      console.error(error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [])
-
+  }, []);
 
   const value: ProjectsContext = useMemo(() => {
     return {
@@ -97,8 +107,8 @@ export const ProjectsProvider: React.FC<{
       fetchProjects,
       addNew,
       update,
-      deleteProjectById
-    }
+      deleteProjectById,
+    };
   }, [loading, fetching, projects, addNew, update]);
 
   return (
@@ -107,7 +117,6 @@ export const ProjectsProvider: React.FC<{
     </ProjectsContext.Provider>
   );
 };
-
 
 export const useProjects = (): ProjectsContext => {
   const context = useContext(ProjectsContext);

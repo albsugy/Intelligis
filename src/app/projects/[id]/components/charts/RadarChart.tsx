@@ -2,14 +2,14 @@
 
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from 'recharts';
 
-import type { Props } from './types';
-
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart';
+
+import type { Props } from './types';
 const chartData = [
   { month: 'January', desktop: 186, mobile: 80 },
   { month: 'February', desktop: 305, mobile: 200 },

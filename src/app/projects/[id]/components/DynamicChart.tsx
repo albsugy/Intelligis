@@ -145,8 +145,8 @@ const DynamicChart: React.FC<DynamicChartProps> = ({
                 acc *
                 (1 +
                   (value / 100) *
-                  (index / data.length) *
-                  (1 + Math.random() * 0.5))
+                    (index / data.length) *
+                    (1 + Math.random() * 0.5))
               );
             case 'marketingEffectiveness':
               return acc * (1 + (value / 100) * (1 - 1 / (index + 2)));
@@ -199,7 +199,7 @@ const DynamicChart: React.FC<DynamicChartProps> = ({
                 acc *
                 (1 +
                   (value / 100) *
-                  (0.5 + 0.5 * Math.sin(timeEffect * Math.PI * 2)))
+                    (0.5 + 0.5 * Math.sin(timeEffect * Math.PI * 2)))
               );
             case 'circularEconomyAdoption':
               return (
@@ -274,8 +274,8 @@ const DynamicChart: React.FC<DynamicChartProps> = ({
                 acc *
                 (1 +
                   (value / 100) *
-                  (index / data.length) *
-                  (1 + Math.random() * 0.5))
+                    (index / data.length) *
+                    (1 + Math.random() * 0.5))
               );
             case 'marketingEffectiveness':
               return acc * (1 + (value / 100) * (1 - 1 / (index + 2)));
@@ -328,7 +328,7 @@ const DynamicChart: React.FC<DynamicChartProps> = ({
                 acc *
                 (1 +
                   (value / 100) *
-                  (0.5 + 0.5 * Math.sin(timeEffect * Math.PI * 2)))
+                    (0.5 + 0.5 * Math.sin(timeEffect * Math.PI * 2)))
               );
             case 'circularEconomyAdoption':
               return (
@@ -350,11 +350,19 @@ const DynamicChart: React.FC<DynamicChartProps> = ({
             case 'trendDecomposition':
               return acc * (1 + (value / 100) * Math.log(1 + timeEffect));
             case 'seasonalDecomposition':
-              return acc * (1 + (value / 100) * Math.sin(timeEffect * Math.PI * 2));
+              return (
+                acc * (1 + (value / 100) * Math.sin(timeEffect * Math.PI * 2))
+              );
             case 'exponentialSmoothing':
               return acc * (1 + (value / 100) * (1 - Math.exp(-timeEffect)));
             case 'arimaModel':
-              return acc * (1 + (value / 100) * (Math.sin(timeEffect * Math.PI) + Math.cos(timeEffect * Math.PI * 2)));
+              return (
+                acc *
+                (1 +
+                  (value / 100) *
+                    (Math.sin(timeEffect * Math.PI) +
+                      Math.cos(timeEffect * Math.PI * 2)))
+              );
             case 'linearRegression':
               return acc * (1 + (value / 100) * timeEffect);
             case 'polynomialRegression':
@@ -362,9 +370,16 @@ const DynamicChart: React.FC<DynamicChartProps> = ({
             case 'ridgeRegression':
               return acc * (1 + (value / 100) * Math.sqrt(timeEffect));
             case 'lassoRegression':
-              return acc * (1 + (value / 100) * (timeEffect > 0.5 ? timeEffect : 0));
+              return (
+                acc * (1 + (value / 100) * (timeEffect > 0.5 ? timeEffect : 0))
+              );
             case 'logisticRegression':
-              return acc * (1 + (value / 100) * (1 / (1 + Math.exp(-10 * (timeEffect - 0.5)))));
+              return (
+                acc *
+                (1 +
+                  (value / 100) *
+                    (1 / (1 + Math.exp(-10 * (timeEffect - 0.5)))))
+              );
             case 'decisionTrees':
               return acc * (1 + (value / 100) * (timeEffect > 0.5 ? 1 : -1));
             case 'randomForest':
@@ -372,23 +387,61 @@ const DynamicChart: React.FC<DynamicChartProps> = ({
             case 'supportVectorMachines':
               return acc * (1 + (value / 100) * Math.tanh(timeEffect));
             case 'neuralNetworkComplexity':
-              return acc * (1 + (value / 100) * Math.sin(timeEffect * Math.PI * 4));
+              return (
+                acc * (1 + (value / 100) * Math.sin(timeEffect * Math.PI * 4))
+              );
             case 'holtsMethod':
-              return acc * (1 + (value / 100) * (timeEffect + Math.sin(timeEffect * Math.PI * 2)));
+              return (
+                acc *
+                (1 +
+                  (value / 100) *
+                    (timeEffect + Math.sin(timeEffect * Math.PI * 2)))
+              );
             case 'ensembleMethods':
-              return acc * (1 + (value / 100) * (0.4 * Math.sin(timeEffect * Math.PI) + 0.3 * Math.cos(timeEffect * Math.PI * 2) + 0.3 * timeEffect));
+              return (
+                acc *
+                (1 +
+                  (value / 100) *
+                    (0.4 * Math.sin(timeEffect * Math.PI) +
+                      0.3 * Math.cos(timeEffect * Math.PI * 2) +
+                      0.3 * timeEffect))
+              );
             case 'hybridModels':
-              return acc * (1 + (value / 100) * (Math.sin(timeEffect * Math.PI) * Math.log(1 + timeEffect)));
+              return (
+                acc *
+                (1 +
+                  (value / 100) *
+                    (Math.sin(timeEffect * Math.PI) * Math.log(1 + timeEffect)))
+              );
             case 'recurrentNeuralNetworks':
-              return acc * (1 + (value / 100) * Math.sin(timeEffect * Math.PI * 8));
+              return (
+                acc * (1 + (value / 100) * Math.sin(timeEffect * Math.PI * 8))
+              );
             case 'longShortTermMemory':
-              return acc * (1 + (value / 100) * (1 - 1 / (1 + Math.exp(10 * (timeEffect - 0.5)))));
+              return (
+                acc *
+                (1 +
+                  (value / 100) *
+                    (1 - 1 / (1 + Math.exp(10 * (timeEffect - 0.5)))))
+              );
             case 'gatedRecurrentUnits':
-              return acc * (1 + (value / 100) * (1 - Math.exp(-5 * timeEffect)));
+              return (
+                acc * (1 + (value / 100) * (1 - Math.exp(-5 * timeEffect)))
+              );
             case 'convolutionalNeuralNetworks':
-              return acc * (1 + (value / 100) * Math.max(0, Math.sin(timeEffect * Math.PI * 4)));
+              return (
+                acc *
+                (1 +
+                  (value / 100) *
+                    Math.max(0, Math.sin(timeEffect * Math.PI * 4)))
+              );
             case 'autoencoders':
-              return acc * (1 + (value / 100) * (Math.sin(timeEffect * Math.PI * 2) + Math.random() * 0.2));
+              return (
+                acc *
+                (1 +
+                  (value / 100) *
+                    (Math.sin(timeEffect * Math.PI * 2) + Math.random() * 0.2))
+              );
             default:
               return acc;
           }
@@ -432,32 +485,24 @@ const DynamicChart: React.FC<DynamicChartProps> = ({
               animationDuration={500}
             />
           </ScatterChart>
-
         );
       case 'composed_chart':
         return (
-
-          <ComposedChart data={chartData} >
+          <ComposedChart data={chartData}>
             <CartesianGrid strokeDasharray='3 3' />
             <XAxis dataKey={xAxisKey} />
             <YAxis />
             <Tooltip />
             <Legend />
             <Bar dataKey={yAxisKey} fill='#8884d8' animationDuration={500} />
-            <Line
-              type='monotone'
-              dataKey={secondaryAxisKey}
-              stroke='#82ca9d'
-            />
+            <Line type='monotone' dataKey={secondaryAxisKey} stroke='#82ca9d' />
             <Line type='monotone' dataKey={thirdAxisKey} stroke='#ccc671' />
           </ComposedChart>
-
         );
       case 'radar_chart':
         return <CustomRadarChart data={chartData} />;
       case 'treemap_chart':
         return (
-
           <Treemap
             data={chartData}
             dataKey={yAxisKey}
@@ -465,11 +510,9 @@ const DynamicChart: React.FC<DynamicChartProps> = ({
             stroke='#fff'
             fill='#8884d8'
           />
-
         );
       case 'funnel_chart':
         return (
-
           <FunnelChart>
             <Tooltip />
             <Funnel dataKey={yAxisKey} data={chartData} isAnimationActive>
@@ -481,7 +524,6 @@ const DynamicChart: React.FC<DynamicChartProps> = ({
               ))}
             </Funnel>
           </FunnelChart>
-
         );
       case 'stacked_bar_chart':
         return (
@@ -491,13 +533,9 @@ const DynamicChart: React.FC<DynamicChartProps> = ({
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="hight" stackId='a' fill='#8884d8' />
-            <Bar
-              dataKey="current"
-              stackId='a'
-              fill='#82ca9d'
-            />
-            <Bar dataKey="low" stackId='a' fill='#ccc671' />
+            <Bar dataKey='hight' stackId='a' fill='#8884d8' />
+            <Bar dataKey='current' stackId='a' fill='#82ca9d' />
+            <Bar dataKey='low' stackId='a' fill='#ccc671' />
           </BarChart>
         );
       case 'stacked_area_chart':

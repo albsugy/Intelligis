@@ -19,10 +19,8 @@ function sortItemsByDate(items: IData[]) {
   });
 }
 
-
 export function History({ project, setCurrent }: Props) {
-
-  const dataToDisplay = sortItemsByDate(project?.data) ?? []
+  const dataToDisplay = sortItemsByDate(project?.data) ?? [];
 
   return (
     <div
@@ -32,19 +30,25 @@ export function History({ project, setCurrent }: Props) {
       <div className='w-full items-start gap-6 rounded-lg border h-full'>
         <h3 className='text-sm font-semibold my-2 px-4 flex gap-1.5 items-center'>
           <FileClock className='size-4' />
-          Report history</h3>
+          Report history
+        </h3>
         <ScrollArea className=''>
           {dataToDisplay.map((item, idx) => {
             return (
-              <Button variant="ghost" key={idx} className='flex w-full justify-between items-center transition-all hover:bg-gray-50 px-4' onClick={() => setCurrent(idx)}>
-                <div className='text-xs truncate'>{new Date(item.$createdAt).toUTCString()}</div>
+              <Button
+                variant='ghost'
+                key={idx}
+                className='flex w-full justify-between items-center transition-all hover:bg-gray-50 px-4'
+                onClick={() => setCurrent(idx)}
+              >
+                <div className='text-xs truncate'>
+                  {new Date(item.$createdAt).toUTCString()}
+                </div>
               </Button>
-            )
-          }
-          )}
+            );
+          })}
         </ScrollArea>
       </div>
     </div>
   );
 }
-

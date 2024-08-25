@@ -19,7 +19,7 @@ import { IProject } from '@/types/projects';
 
 interface Props {
   open: boolean;
-  project: IProject
+  project: IProject;
 }
 
 export function AdjustmentPanel({ open, project }: Props) {

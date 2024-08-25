@@ -1,4 +1,4 @@
-import { SignedIn, UserButton } from "@clerk/nextjs"
+import { SignedIn, UserButton } from '@clerk/nextjs';
 import {
   Home,
   LineChart,
@@ -6,95 +6,96 @@ import {
   Package,
   ShoppingCart,
   Users,
-} from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+} from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+} from '@/components/ui/card';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export default function Header() {
   return (
-    <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+    <header className='flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6'>
       <Sheet>
         <SheetTrigger asChild>
-          <Button
-            variant="outline"
-            size="icon"
-            className="shrink-0 md:hidden"
-          >
-            <Menu className="h-5 w-5" />
-            <span className="sr-only">Toggle navigation menu</span>
+          <Button variant='outline' size='icon' className='shrink-0 md:hidden'>
+            <Menu className='h-5 w-5' />
+            <span className='sr-only'>Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
         {/* Mobile Menu */}
-        <SheetContent side="left" className="flex flex-col">
-          <nav className="grid gap-2 text-lg font-medium">
+        <SheetContent side='left' className='flex flex-col'>
+          <nav className='grid gap-2 text-lg font-medium'>
             <Link
-              href="/projects"
-              className="flex items-center gap-2 text-lg font-semibold"
+              href='/projects'
+              className='flex items-center gap-2 text-lg font-semibold'
             >
-              <Image width={40} height={40} src="/images/logo.jpeg" alt='Intelligis logo' />
-              <span className="sr-only">Intelligis</span>
+              <Image
+                width={40}
+                height={40}
+                src='/images/logo.jpeg'
+                alt='Intelligis logo'
+              />
+              <span className='sr-only'>Intelligis</span>
             </Link>
             <Link
-              href="/projects"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+              href='/projects'
+              className='mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground'
             >
-              <Home className="h-5 w-5" />
+              <Home className='h-5 w-5' />
               Projects
             </Link>
             <Link
-              href="#"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
+              href='#'
+              className='mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground'
             >
-              <ShoppingCart className="h-5 w-5" />
+              <ShoppingCart className='h-5 w-5' />
               Orders
-              <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+              <Badge className='ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full'>
                 6
               </Badge>
             </Link>
             <Link
-              href="#"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+              href='#'
+              className='mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground'
             >
-              <Package className="h-5 w-5" />
+              <Package className='h-5 w-5' />
               Products
             </Link>
             <Link
-              href="#"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+              href='#'
+              className='mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground'
             >
-              <Users className="h-5 w-5" />
+              <Users className='h-5 w-5' />
               Customers
             </Link>
             <Link
-              href="#"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+              href='#'
+              className='mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground'
             >
-              <LineChart className="h-5 w-5" />
+              <LineChart className='h-5 w-5' />
               Analytics
             </Link>
           </nav>
-          <div className="mt-auto">
+          <div className='mt-auto'>
             <Card>
               <CardHeader>
                 <CardTitle>Upgrade to Pro</CardTitle>
                 <CardDescription>
-                  Unlock all features and get unlimited access to our
-                  support team.
+                  Unlock all features and get unlimited access to our support
+                  team.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button size="sm" className="w-full">
+                <Button size='sm' className='w-full'>
                   Upgrade
                 </Button>
               </CardContent>
@@ -102,11 +103,10 @@ export default function Header() {
           </div>
         </SheetContent>
       </Sheet>
-      <div className="w-full flex-1">
-      </div>
+      <div className='w-full flex-1'></div>
       <SignedIn>
         <UserButton />
       </SignedIn>
     </header>
-  )
+  );
 }

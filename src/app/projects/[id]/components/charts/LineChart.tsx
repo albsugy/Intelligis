@@ -2,14 +2,14 @@
 
 import { CartesianGrid, Line, LineChart, XAxis } from 'recharts';
 
-import type { Props } from './types';
-
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart';
+
+import type { Props } from './types';
 
 const chartConfig = {
   current: {

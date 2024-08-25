@@ -89,12 +89,18 @@ const widgetSchema = z.object({
     z.object({
       xAxisKey: z
         .string()
-        .describe('value that will be used as xAxisKey for the chart, generate more than 10'),
+        .describe(
+          'value that will be used as xAxisKey for the chart, generate more than 10',
+        ),
       current: z
         .number()
         .describe('the current value from the provided context'),
-      low: z.number().describe('lowest prediction value, should be less than current'),
-      high: z.number().describe('highest prediction value,should be more than current'),
+      low: z
+        .number()
+        .describe('lowest prediction value, should be less than current'),
+      high: z
+        .number()
+        .describe('highest prediction value,should be more than current'),
     }),
   ),
 });
@@ -112,14 +118,19 @@ const totalsSchema = z.object({
 export type ITotal = z.infer<typeof totalsSchema>;
 
 export async function generate({
-  context, method, input = '', industry, widgets, businessFocus,
+  context,
+  method,
+  input = '',
+  industry,
+  widgets,
+  businessFocus,
 }: {
-  context: string,
-  input?: string
-  method: string
-  industry: string
-  widgets: string
-  businessFocus: string
+  context: string;
+  input?: string;
+  method: string;
+  industry: string;
+  widgets: string;
+  businessFocus: string;
 }) {
   'use server';
 
@@ -133,7 +144,7 @@ export async function generate({
         businessFocus,
         method,
         data: context,
-        widgets
+        widgets,
       }),
       prompt: input,
       schema: z.object({
@@ -151,4 +162,3 @@ export async function generate({
 
   return { object: stream.value };
 }
-

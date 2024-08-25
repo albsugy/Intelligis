@@ -14,7 +14,7 @@
 - ✨ TypeScript
 - 💨 Tailwind CSS 3 — Configured with CSS Variables to extend the **primary** color
 - 🃏 Jest — Configured for unit testing
-- 📈 Absolute Import and Path Alias — Import components using `@/` prefix
+- 📈 Charts
 - 📏 ESLint — Find and fix problems in your code, also will **auto sort** your imports
 - 💖 Prettier — Format your code consistently
 - 🐶 Husky & Lint Staged — Run scripts on your staged files before they are committed

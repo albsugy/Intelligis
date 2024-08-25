@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "eslint src --fix && pnpm format",
+    "lint:fix": "eslint src --fix && yarn format",
     "lint:strict": "eslint --max-warnings=0 src",
     "typecheck": "tsc --noEmit --incremental false",
     "test:watch": "jest --watch",
@@ -21,6 +21,7 @@
     "@ai-sdk/google": "^0.0.39",
     "@clerk/nextjs": "^5.3.3",
     "@hookform/resolvers": "^3.9.0",
+    "@langchain/community": "^0.2.31",
     "@langchain/core": "^0.2.27",
     "@langchain/google-genai": "^0.0.26",
     "@langchain/langgraph": "^0.0.34",
@@ -106,5 +107,5 @@
       "prettier -w"
     ]
   },
-  "packageManager": "yarn@4.4.1"
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }

@@ -1,7 +1,7 @@
 # Intelligis
 
 <div align="center">
-  <h2>🔋 AI-powered project management platform</h2>
+  <h2>🔋 AI-powered Predictive Analytics Platform</h2>
   <p>IBM Granite, Multi LLM, Next.js + Tailwind CSS + TypeScript</p>
   <p>Made by <a href="https://albsugy.com">Medhat Albsugy</a></p>
 

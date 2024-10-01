@@ -1,5 +1,7 @@
 # Intelligis
 
+New updade
+
 <div align="center">
   <h2>🔋 AI-powered Predictive Analytics Platform</h2>
   <p>IBM Granite, Multi LLM, Next.js + Tailwind CSS + TypeScript</p>
